@@ -8,7 +8,7 @@ const path = require("path"); //usando o path, que nos auxilia a manipular pasta
 //const mongoose = require("mongoose")
 const mongoose = require("mongoose");
 const session = require("express-session");
-const flash = require("connect-slash");
+const flash = require("connect-flash");
 
 //public
 app.use(express.static(path.join(__dirname, "public"))); //anunciando que os arquivos estáticos estão na pasta public
