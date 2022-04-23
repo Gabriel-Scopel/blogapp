@@ -7,8 +7,17 @@
     <div class="card-body">
       <h4>{{nome}}</h4>
       <small>Slug: {{slug}}</small><br />
-      <small>Criado em: {{date}}</small>
+      <small>Data de criação: {{date}}</small>
+      <a href="/admin/categorias/edit/{{_id}}"><button
+          class="btn btn-success"
+        >Editar categoria</button></a>
+      <form action="/admin/categorias/deletar/{{_id}}" method="post">
+                <input type="hidden" name="id" value="{{_id}}">
+                <button type="submit" class="btn btn-danger mt-2">Deletar categoria</button>
+            </form>
+      </form>
     </div>
   </div>
 {{else}}
+  <h4 class="mt-2">Nenhuma categoria registrada.</h4>
 {{/each}}
