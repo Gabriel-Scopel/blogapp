@@ -122,8 +122,19 @@ router.post("/categorias/deletar/:id", (req, res) => {
       res.redirect("/admin/categorias");
     });
 });
+
 router.get("/postagens", (req, res) => {
-  res.render("admin/postagens");
+  Postagem.find()
+    .lean()
+    .populate("categoria")
+    .sort({ data: "desc" })
+    .then((postagens) => {
+      res.render("admin/postagens", { postagens: postagens });
+    })
+    .catch((err) => {
+      req.flash("error_msg", "Erro ao listar os posts");
+      res.render("/admin");
+    });
 });
 
 router.get("/postagens/add", (req, res) => {
