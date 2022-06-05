@@ -1,4 +1,4 @@
-const { response } = require("express");
+const {response } = require("express");
 const express = require("express");
 const router = express.Router(); // componente que nos possibilita usar rotas em arquivos separados
 const mongoose = require("mongoose");
